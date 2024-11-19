@@ -3,11 +3,26 @@ import { nunito } from "../components/Fonts";
 import { Button } from "../components/Button";
 import { FeatureCard } from "../components/FeatureCard";
 import { Footer } from "../components/Footer";
+import Link from "next/link";
+
 
 export default function Home() {
   return (
     <div className={`${nunito.className} min-h-screen bg-gradient-to-br from-[#E6FFF9] via-[#B2FFE6] to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-700`}>
-      <div className="container mx-auto px-4 py-16">
+      <header className="fixed top-0 left-0 right-0 bg-[#00BFA6]/90 backdrop-blur-sm shadow-lg z-50 rounded-b-xl">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <Link href="/" className="text-white text-2xl font-bold">fo<span className="text-teal-200">Course</span>
+              </Link>
+            </div>            
+            <div className="flex items-center space-x-4">
+              {/* bagian kanan */}
+            </div>
+          </div>
+        </div>
+      </header> 
+      <div className="container mx-auto px-4 py-16 mt-5">
         <main className="flex flex-col items-center">
           <div className="flex flex-col md:flex-row items-center justify-between w-full mb-16 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
             <div className="w-full md:w-1/2 text-left mb-8 md:mb-0">
@@ -22,9 +37,9 @@ export default function Home() {
                 <Button href="/courses" variant="primary">
                   Start Learning Now <span className="text-xl">🚀</span>
                 </Button>
-                <Button href="/demo" variant="secondary">
-                  Watch Demo <span className="text-xl">▶️</span>
-                </Button>
+                {/* <Button href="#" variant="secondary">
+                  About Us <span className="text-xl">▶️</span>
+                </Button> */}
               </div>
             </div>
             <div className="w-full md:w-1/2 relative h-[400px] mb-9 transform hover:rotate-3 transition-transform duration-300">

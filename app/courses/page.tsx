@@ -2,6 +2,7 @@
 import { nunito } from "../../components/Fonts";
 import { Button } from "../../components/Button";
 import { useState } from "react";
+import Link from "next/link";
 
 interface Course {
   id: string;
@@ -39,7 +40,7 @@ const courses: Course[] = [
       id: "4 minggu"
     },
     lessons: 12,
-    image: "/courses/forex-basics.svg"
+    image: "/course-1.svg"
   },
   {
     id: "technical-analysis",
@@ -57,7 +58,7 @@ const courses: Course[] = [
       id: "6 minggu"
     },
     lessons: 18,
-    image: "/courses/technical.svg"
+    image: "/course-2.svg"
   },
   {
     id: "risk-management",
@@ -75,7 +76,7 @@ const courses: Course[] = [
       id: "5 minggu"
     },
     lessons: 15,
-    image: "/courses/risk.svg"
+    image: "/course-3.svg"
   }
 ];
 
@@ -112,8 +113,9 @@ export default function CoursesPage() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <span className="text-white text-2xl font-bold">fo<span className="text-teal-200">Course</span></span>
-            </div>
+              <Link href="/" className="text-white text-2xl font-bold">fo<span className="text-teal-200">Course</span>
+              </Link>
+            </div>            
             <div className="flex items-center space-x-4">
               <div className="relative group">
                 <button className="flex items-center space-x-2 bg-white/10 rounded-lg px-3 py-2 hover:bg-white/20 transition-all group-hover:rounded-b-none">
@@ -127,7 +129,8 @@ export default function CoursesPage() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
-                </button>                <div className="absolute right-0 mt-2 w-32 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg hidden group-hover:block">
+                </button>                
+                <div className="absolute right-0 mt-2 w-32 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg hidden group-hover:block">
                   {Object.entries(languages).map(([code, lang]) => (
                     <button
                       key={code}
@@ -174,7 +177,7 @@ export default function CoursesPage() {
                 <img
                   src={course.image}
                   alt={course.title[language as keyof typeof course.title]}
-                  className="w-full h-full object-cover rounded-xl"
+                  className="w-full h-full object-contain mt-2"
                 />
                 <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-semibold bg-[#00BFA6] text-white">
                   {course.level}
@@ -192,7 +195,7 @@ export default function CoursesPage() {
               </div>
               <Button
                 href={`/courses/${course.id}`}
-                variant="secondary"
+                variant="standarprimary"
               >
                 {languages[language as keyof typeof languages].startCourse} <span className="text-xl">➡️</span>
               </Button>
